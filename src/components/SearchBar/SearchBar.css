@@ -1,0 +1,57 @@
+.SearchBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url('../../assets/images/book.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 20rem;
+}
+
+.SearchField {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.88rem;
+}
+
+.SearchField input {
+    width: 30rem;
+    padding: .66rem 1rem;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 10px 10px 10px #1f1f1f;
+}
+
+.SearchBtn {
+    text-align: center;
+}
+
+.SearchBtn a {
+    text-decoration: none;
+    border-radius: 5px;
+    padding: .72rem 1.7rem;
+    background-color: #04504c;
+    color: #fff;
+    font-weight: 600;
+    transition: background-color .5s;
+}
+
+.SearchBtn a:hover {
+    cursor: pointer;
+    background-color: #0f807a;
+}
+
+
+@media only screen and (max-width: 560px) {
+    .SearchField {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .SearchField input {
+        width: 20rem;
+    }
+}

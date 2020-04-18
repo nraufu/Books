@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: Poppins, sans-serif;
+}
+
+
+h1 {
+  padding: .66rem 0;
+  text-align: center;
+  background-color: #0a5264;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+
+@media only screen and (max-width: 560px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+input:focus {
+  outline: none;
+}
