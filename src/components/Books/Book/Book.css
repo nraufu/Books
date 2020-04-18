@@ -1,0 +1,54 @@
+.image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+}
+
+.image-container img {
+    width: 100%;
+}
+
+.Book {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 16.66rem;
+    margin: 0 .5rem 2.3rem .5rem;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #1f1f1f;
+}
+
+.Book .image-container {
+    height: 15rem;
+    margin-bottom: 0.5rem;
+}
+
+.Book h2 {
+    padding: 10px;
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.Book-info {
+    padding: 10px;
+}
+
+.Book-info p {
+    font-size: 0.90rem;
+    font-weight: 300;
+    line-height: 1rem;
+    margin-bottom: 5px;
+}
+
+.Book-info a {
+    text-decoration: none;
+    color: #0e9e97;
+}
+
+.Book:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
