@@ -1,9 +1,8 @@
 .image-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     overflow: hidden;
     background: #000;
+    background-size: cover;
 }
 
 .image-container img {
@@ -41,6 +40,10 @@
     font-weight: 300;
     line-height: 1rem;
     margin-bottom: 5px;
+}
+
+.Book-info p span {
+    font-weight: 600;
 }
 
 .Book-info a {

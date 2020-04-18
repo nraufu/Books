@@ -2,31 +2,25 @@ import React, { Component } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import Books from "../Books/Books";
 import "./App.css";
-
-const aBook = {
-	img: "https://picsum.photos/200",
-	title: "new Book",
-	author: "author name",
-	publisher: "Publishing company",
-};
-
-const books = [aBook, aBook, aBook, aBook, aBook];
+import { getBooks } from "./../../utils/google-books";
 
 class App extends Component {
 	state = {
-		Books: [],
+		books: [],
 	};
 
-	componentDidMount() {
-		this.setState({ Books: books });
-	}
+	handleSearch = async (book) => {
+		const books = await getBooks(book);
+		this.setState({ books: books });
+	};
 
 	render() {
+		console.log(this.state.books);
 		return (
 			<React.Fragment>
 				<h1>Books</h1>
-				<SearchBar />
-				<Books books={this.state.Books} />
+				<SearchBar searchBook={this.handleSearch} />
+				<Books books={this.state.books} />
 			</React.Fragment>
 		);
 	}

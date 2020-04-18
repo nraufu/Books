@@ -1,16 +1,22 @@
 import React from "react";
 import "./Book.css";
 
-const Book = (props) => {
+const Book = ({ book }) => {
 	return (
 		<div className="Book">
 			<div className="image-container">
-				<img src={props.book.img} alt="" />
+				<img src={book.volumeInfo.imageLinks.smallThumbnail} alt="" />
 			</div>
-			<h2>title: {props.book.title}</h2>
+			<h2>{book.volumeInfo.title}</h2>
 			<div className="Book-info">
-				<p>Author: {props.book.author}</p>
-				<p>Publish Company: {props.book.publisher}</p>
+				<p>
+					<span>By: </span>
+					{book.volumeInfo["authors"]}
+				</p>
+				<p>
+					<span>Published by: </span>
+					{book.volumeInfo.publisher}
+				</p>
 				<a href="./">Learn More</a>
 			</div>
 		</div>

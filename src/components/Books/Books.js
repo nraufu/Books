@@ -2,10 +2,10 @@ import React from "react";
 import "./Books.css";
 import Book from "./Book/Book";
 
-const Books = (props) => {
+const Books = ({ books }) => {
 	return (
 		<div className="Books">
-			{props.books.map((book) => (
+			{books.map((book) => (
 				<Book key={book.id} book={book} />
 			))}
 		</div>
