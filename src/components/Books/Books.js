@@ -6,7 +6,7 @@ import "./Books.css";
 const Books = ({ books }) => {
 	return (
 		<div className="Books">
-			{books.length >= 1 ? (
+			{setTimeout(() => books.length >= 1, 1000) ? (
 				books.map((book) => <Book key={book.id} book={book} />)
 			) : (
 				<div>

@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import {
-	BrowserRouter as Router,
-	Route,
-	Redirect,
-	Switch,
-} from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import SearchBar from "../SearchBar/SearchBar";
 import Books from "../Books/Books";
 import BookInfo from "../BookInfo/BookInfo";
@@ -25,31 +21,30 @@ class App extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Router>
-					{window.location.pathname === "/" ? (
-						<h1>Books</h1>
-					) : (
-						<h1>
-							<a href="/">Back To Search</a>
-						</h1>
-					)}
-					<Switch>
-						<Route
-							path="/search"
-							render={(props) => (
-								<SearchBar {...props} searchBook={this.handleSearch} />
-							)}
-						/>
-						<Route
-							path="/books"
-							render={(props) => <Books {...props} books={this.state.books} />}
-						/>
-						<Route path="/book/:id" component={BookInfo} />
-						<Route path="/not-found" component={NotFound} />
-						<Redirect from="/" exact to="/search" />
-						<Redirect to="/Not-found" />
-					</Switch>
-				</Router>
+				<ToastContainer />
+				{window.location.pathname === "/search" ? (
+					<h1>Books</h1>
+				) : (
+					<h1>
+						<a href="/">Back To Search</a>
+					</h1>
+				)}
+				<Switch>
+					<Route
+						path="/search"
+						render={(props) => (
+							<SearchBar {...props} searchBook={this.handleSearch} />
+						)}
+					/>
+					<Route
+						path="/books"
+						render={(props) => <Books {...props} books={this.state.books} />}
+					/>
+					<Route path="/book/:id" component={BookInfo} />
+					<Route path="/not-found" component={NotFound} />
+					<Redirect from="/" exact to="/search" />
+					<Redirect to="/Not-found" />
+				</Switch>
 			</React.Fragment>
 		);
 	}
