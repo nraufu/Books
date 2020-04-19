@@ -14,6 +14,12 @@ h1 {
   color: #fff;
 }
 
+h1 a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
 
 @media only screen and (max-width: 560px) {
   html {
