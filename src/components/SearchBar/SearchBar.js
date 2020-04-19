@@ -2,15 +2,17 @@ import React, { Component } from "react";
 import "./SearchBar.css";
 
 class SearchBar extends Component {
-	state = { book: "" };
+	state = { userInput: "" };
 
 	handleInputChange = (event) => {
-		this.setState({ book: event.target.value });
+		this.setState({ userInput: event.target.value });
 	};
 
 	handleSearch = (event) => {
 		event.preventDefault();
-		this.props.searchBook(this.state.book);
+		if (!this.state.userInput) return;
+		this.props.searchBook(this.state.userInput);
+		this.props.history.push("/books");
 	};
 
 	render() {
@@ -20,9 +22,11 @@ class SearchBar extends Component {
 					<input
 						placeholder="Search a Book..."
 						onChange={this.handleInputChange}
+						value={this.state.userInput}
 					/>
 				</div>
 				<div className="SearchBtn">
+					{/* eslint-disable-next-line */}
 					<a onClick={this.handleSearch}>Search</a>
 				</div>
 			</div>

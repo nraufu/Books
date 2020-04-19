@@ -6,7 +6,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 20rem;
+    height: 90vh;
 }
 
 .SearchField {
@@ -45,7 +45,7 @@
 }
 
 
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 720px) {
     .SearchField {
         flex-direction: column;
         align-items: center;

@@ -1,0 +1,44 @@
+.Info {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 100px auto;
+}
+
+.Thumbnail {
+    border: 1px solid #000;
+    box-shadow: 5px 5px 10px #3a3a3a;
+    border-radius: 5px;
+    margin-right: 40px;
+    height: 10.75rem;
+}
+
+.Info-desc {
+    border-left: 10px Solid #0a5264;
+    padding-left: 10px;
+}
+
+.Info-desc p {
+    margin: 10px 0;
+}
+
+.Info-desc p span {
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 720px) {
+    .Info {
+        flex-direction: column;
+    }
+
+    .Thumbnail {
+        margin: 0 auto;
+        height: 12.15rem;
+    }
+
+    .Info-desc {
+        border: none;
+        margin-top: 20px;
+    }
+}
