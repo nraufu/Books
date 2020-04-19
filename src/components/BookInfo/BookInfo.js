@@ -16,7 +16,8 @@ const Hello = ({ match }) => {
 		setBook(book);
 	};
 
-	const getInfo = (type) => (book.volumeInfo ? book.volumeInfo[type] : "");
+	const getInfo = (type) =>
+		book.volumeInfo ? book.volumeInfo[type] : "Not Available";
 	const getThumbnail = () =>
 		book.volumeInfo ? book.volumeInfo.imageLinks.thumbnail : "";
 	return (
