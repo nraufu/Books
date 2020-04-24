@@ -11,24 +11,27 @@ import "./App.css";
 class App extends Component {
 	state = {
 		books: [],
+		loading: false,
+		booksFound: false,
 	};
 
 	handleSearch = async (book) => {
-		const books = await getBooks(book);
-		this.setState({ books: books });
+		this.setState({ loading: true });
+		await getBooks(book)
+			.then((response) => {
+				this.setState({ books: response, loading: false, booksFound: true });
+			})
+			.catch((error) => {
+				console.log(error);
+				this.setState({ loading: false });
+			});
 	};
 
 	render() {
 		return (
 			<React.Fragment>
 				<ToastContainer />
-				{window.location.pathname === "/search" ? (
-					<h1>Books</h1>
-				) : (
-					<h1>
-						<a href="/">Back To Search</a>
-					</h1>
-				)}
+				<h1>Books</h1>
 				<Switch>
 					<Route
 						path="/search"
@@ -38,7 +41,14 @@ class App extends Component {
 					/>
 					<Route
 						path="/books"
-						render={(props) => <Books {...props} books={this.state.books} />}
+						render={(props) => (
+							<Books
+								{...props}
+								books={this.state.books}
+								loading={this.state.loading}
+								booksFound={this.state.booksFound}
+							/>
+						)}
 					/>
 					<Route path="/book/:id" component={BookInfo} />
 					<Route path="/not-found" component={NotFound} />

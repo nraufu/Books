@@ -1,21 +1,24 @@
 import React from "react";
 import Book from "./Book/Book";
+import Spinner from "../Spinner/Spinner";
 import badRequest from "../../assets/images/400Badrequest.gif";
 import "./Books.css";
 
-const Books = ({ books }) => {
-	return (
-		<div className="Books">
-			{setTimeout(() => books.length >= 1, 1000) ? (
-				books.map((book) => <Book key={book.id} book={book} />)
-			) : (
-				<div>
-					<img src={badRequest} alt="" />
-					<h2>No results matching the Requested Book name</h2>
-				</div>
-			)}
+const Books = ({ books, loading, booksFound }) => {
+	let response = (
+		<div>
+			<img src={badRequest} alt="" />
+			<h2> No results matching the Requested Book name </h2>{" "}
 		</div>
 	);
+	if (loading) {
+		response = <Spinner />;
+	}
+	if (booksFound) {
+		response = books.map((book) => <Book key={book.id} book={book} />);
+	}
+
+	return <div className="Books"> {response} </div>;
 };
 
 export default Books;
